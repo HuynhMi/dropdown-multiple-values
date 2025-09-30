@@ -4,6 +4,294 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <style>
+            * {
+                font-family: sans-serif;
+            }
+            .select-wrapper {
+                max-width: 400px;
+                font-size: 16px;
+                box-sizing: border-box;
+            }
+            .select-inner {
+                position: relative;
+            }
+
+            .remove-all {
+                position: absolute;
+                bottom: 100%;
+                right: 0;
+                font-size: 12px;
+                background: unset;
+                border: unset;
+                text-decoration: underline;
+                font-style: italic;
+
+                display: none;
+                transition: all linear 0.2s;
+            }
+
+            .remove-all:hover {
+                letter-spacing: 2px;
+            }
+            .select-tag {
+                color: #575757;
+                font-style: italic;
+                width: 100%;
+                border: 1px solid #ccc;
+                display: inline-flex;
+                min-height: 44px;
+                align-items: center;
+                padding: 5px 15px;
+                gap: 5px;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                list-style: none;
+                margin: 0;
+            }
+            .select-tag .item {
+                display: block;
+                color: #292929;
+                background: #f1f1f1;
+                padding: 5px 7px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+            }
+            .select-tag .item::after {
+                content: 'x';
+                font-size: 10px;
+                display: block;
+                margin-left: 4px;
+                position: relative;
+                transition: all linear 0.2s;
+            }
+            .select-tag .item:hover::after {
+                font-weight: 600;
+            }
+            .select-dropdown {
+                background-color: #fff;
+                padding: 5px 5px;
+                border: 1px solid #ccc;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .select-dropdown ul {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                max-height: 100px;
+                overflow-y: scroll;
+
+                font-style: italic;
+                color: #ccc;
+            }
+            .select-dropdown ul::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            /* Track */
+            .select-dropdown ul::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            /* Handle */
+            .select-dropdown ul::-webkit-scrollbar-thumb {
+                background: #888;
+                border-radius: 5px;
+            }
+
+            /* Handle on hover */
+            .select-dropdown ul::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+            .select-dropdown input {
+                width: 100%;
+                font-size: 16px;
+                min-height: 44px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                padding: 5px 8px;
+            }
+            .select-dropdown ul li {
+                color: #292929;
+                padding: 4px 7px;
+                display: block;
+                font-style: normal;
+            }
+            .select-dropdown li:hover {
+                background-color: #f1f1f1;
+            }
+            .select-wrapper-label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        </style>
+        <script src="./main.js"></script>
     </head>
-    <body></body>
+    <body>
+        <!-- Pet Nutrition Report -->
+        <div class="select-wrapper" id="pet-nutrition-report">
+            <div class="select-wrapper-label">
+                <h3>Pet Nutrition Report</h3>
+                <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 448 512"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+                    ></path>
+                </svg>
+            </div>
+
+            <div class="select-inner">
+                <button class="remove-all">remove all</button>
+                <ul class="select-tag">
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                </ul>
+                <div class="select-dropdown">
+                    <input
+                        placeholder="Search report name"
+                        type="search"
+                        name="country-name"
+                        id="country-name"
+                        class="select-search"
+                    />
+                    <ul class="select-dropdown-list">
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pet Health Report -->
+        <div class="select-wrapper" id="pet-health-report">
+            <div class="select-wrapper-label">
+                <h3>Pet Health Report</h3>
+                <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 448 512"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+                    ></path>
+                </svg>
+            </div>
+
+            <div class="select-inner">
+                <ul class="select-tag">
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                    <li class="item">item 1</li>
+                </ul>
+                <div class="select-dropdown">
+                    <input
+                        placeholder="Search report name"
+                        type="search"
+                        name="country-name"
+                        id="country-name"
+                        class="select-search"
+                    />
+                    <ul class="select-dropdown-list">
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                        <li>item 1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new SelectDropdwon({
+                selectorWrapper: '#pet-nutrition-report',
+                allOptions: [
+                    {
+                        label: 'Vietname',
+                        value: 'price_1RlOwdEBxyGfmjTrAoxcgT4d',
+                    },
+                    {
+                        label: 'Australia',
+                        value: 'price_1RlOq7EBxyGfmjTr2OSDa9Y0',
+                    },
+                    {
+                        label: 'Thailan',
+                        value: 'price_1RlOnGEBxyGfmjTrYrSfr2ZA',
+                    },
+                    {
+                        label: 'Lao',
+                        value: 'price_1RlOmcEBxyGfmjTrGw27MYGm',
+                    },
+                    {
+                        label: 'Austraulia',
+                        value: 'price_1RlOmcEBxyGfmjTrGw27MYGm',
+                    },
+                    {
+                        label: 'CaMau',
+                        value: 'price_1RlOwdEBxyGfmjTrAoxcgT4d',
+                    },
+                    {
+                        label: 'Quan 7',
+                        value: 'price_1RlOwdEBxyGfmjTrAoxcgT4d',
+                    },
+                    {
+                        label: 'Ben Thanh',
+                        value: 'price_1RlOwdEBxyGfmjTrAoxcgT4d',
+                    },
+                ],
+            });
+        });
+    </script>
 </html>
